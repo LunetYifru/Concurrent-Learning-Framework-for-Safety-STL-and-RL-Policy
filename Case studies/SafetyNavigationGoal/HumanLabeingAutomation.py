@@ -9,7 +9,7 @@ Created on Wed Sep 27 11:29:41 2023
 import rtamt
 import math
 import pandas as pd
-from GPyOpt_SafetyPointGoal1 import robustness,specification,signal,size
+from BOSNG import robustness,specification,signal,size
 #from InitialDataset import initial_trace
 #x_trace, y_trace = initial_trace()
 
