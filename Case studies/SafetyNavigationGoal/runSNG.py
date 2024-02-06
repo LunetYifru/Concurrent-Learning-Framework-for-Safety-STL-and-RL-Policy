@@ -81,7 +81,7 @@ while percentage_safe < delta:
     # infered_STL = GA(pop_df,x_reg, y_reg, x_anom, y_anom, rng) #infer full STL from traces (template+parameters)
     rng = [-2,2]
     print('Optimizing parameters...')
-    infered_STL_obs, best_Y = GP_opt(2,spec_obs_template,op, x_reg,y_reg, x_anom , y_anom,cost_limit,rng) #Infer parameters given STL template
+    infered_STL_obs, best_Y = GP_opt(100,spec_obs_template,op, x_reg,y_reg, x_anom , y_anom,cost_limit,rng) #Infer parameters given STL template
     # full_spec_new = full_spec(spec_goal, infered_STL_obs)
     print('----Infered STL_Obs is----', infered_STL_obs)
     specs.append(infered_STL_obs)
