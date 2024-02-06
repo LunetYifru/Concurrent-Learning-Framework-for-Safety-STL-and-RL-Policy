@@ -58,14 +58,14 @@ while percentage_safe < 90.0:
     # infered_STL = GA(pop_df,x_reg, y_reg, x_anom, y_anom, rng) #infer full STL from traces (template+parameters)
     rng = [[0,2],[-2,0]]
     print('Optimizing parameters...')
-    infered_STL_obs, best_Y = GP_opt(50,spec_obs_template,op, x_reg,y_reg, x_anom , y_anom,cost_limit,rng) #Infer parameters given STL template
+    infered_STL_obs, best_Y = GP_opt(2,spec_obs_template,op, x_reg,y_reg, x_anom , y_anom,cost_limit,rng) #Infer parameters given STL template
     # full_spec_new = full_spec(spec_goal, infered_STL_obs)
     print('----Infered STL_Obs is----', infered_STL_obs)
     specs.append(infered_STL_obs)
     best_Ys.append(best_Y)
     
     # Train agorithm and get rollout dataset
-    df_x, df_y = train_alg('TD3Lag', env_id,total_steps, infered_STL_obs, num_rollout) # Running TD3 to get results for BL1
+    df_x, df_y = train_alg('TD3Lag', env_id,total_steps, steps_per_epoch, infered_STL_obs, num_rollout) # Running TD3 to get results for BL1
 
     # Human labeling of rollout dataset
     x_r, y_r, x_a, y_a = human_labeling(spec_obs_true,op, df_x, df_y, cost_limit)  # Label rollout traces from RL
@@ -89,7 +89,7 @@ while percentage_safe < 90.0:
 # Run Baseline1 - cost not considered
 
 # print('Running BL1')
-df_x, df_y = train_alg('TD3', env_id, total_steps, spec_obs, num_rollout) # Running TD3 to get results for BL1
+df_x, df_y = train_alg('TD3', env_id, total_steps, steps_per_epoch, spec_obs, num_rollout) # Running TD3 to get results for BL1
 x_reg,y_reg, x_anom , y_anom = human_labeling(spec_obs_true,op, df_x, df_y,cost_limit) # labeling traces
 num_safe = len(x_reg.columns) #number of safe rollout traces
 num_unsafe = len(x_anom.columns) #number of safe rollout traces
@@ -101,7 +101,7 @@ print('Initial Percentage of safe traces: ',percentage_safe,'%')
 # Run Baseline2 - True STL constraint used
 
 print('Running BL2')
-df_x, df_y = train_alg('TD3Lag', env_id,total_steps, spec_obs, num_rollout) # Running TD3 to get results for BL1
+df_x, df_y = train_alg('TD3Lag', env_id,total_steps, steps_per_epoch, spec_obs, num_rollout) # Running TD3 to get results for BL1
 x_reg,y_reg, x_anom , y_anom = human_labeling(spec_obs_true,op, df_x, df_y,cost_limit) # labeling traces
 num_safe = len(x_reg.columns) #number of safe rollout traces
 num_unsafe = len(x_anom.columns) #number of safe rollout traces
