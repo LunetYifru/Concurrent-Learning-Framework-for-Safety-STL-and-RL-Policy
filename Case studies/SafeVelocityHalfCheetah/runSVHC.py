@@ -13,9 +13,9 @@ from HumanLabelingAutomation import human_labeling
 # Hyperparams
 op = 'G'
 env_id = 'SafetyHalfCheetahVelocity-v1'
-total_steps = 1000000
+total_steps = 1000
 steps_per_epoch = 1000
-num_rollout = 50 # Number of rollouts per iteration
+num_rollout = 5 # Number of rollouts per iteration
 cost_limit = 0 #cost limit for Lagrange
 delta = 0.90 # safe traces percentage threshold
 
@@ -32,7 +32,7 @@ df_x1, df_v1 = organize_rollout('initial_dataset_100ep_SVHC_unsafe.pkl')
 df_x2, df_v2 = organize_rollout('initial_dataset_100ep_SVHC_safe.pkl')
 # df_x2, df_v2 = organize_rollout('initial_dataset_300ep_SVHC_safe.pkl')
 df_p_x = pd.concat([df_x1.iloc[:, : 10], df_x2.iloc[:, : 10]], axis=1, ignore_index=True)
-df_v_x = pd.concat([df_y1.iloc[:, : 10], df_y2.iloc[:, : 10]], axis=1, ignore_index=True)
+df_v_x = pd.concat([df_v1.iloc[:, : 10], df_v2.iloc[:, : 10]], axis=1, ignore_index=True)
 
 # df_p_x, df_v_x = df_x2, df_v2
 
@@ -59,13 +59,13 @@ while percentage_safe < delta:
     # infered_STL = GA(pop_df,x_reg, y_reg, x_anom, y_anom, rng) #infer full STL from traces (template+parameters)
     rng = [0,5]
     print('Optimizing parameters...')
-    infered_STL_obs, best_Y = GP_opt(50,spec_obs_template,op, p_x_reg,v_x_reg, p_x_anom , v_x_anom,cost_limit, rng) #Infer parameters given STL template
+    infered_STL_obs, best_Y = GP_opt(2,spec_obs_template,op, p_x_reg,v_x_reg, p_x_anom , v_x_anom,cost_limit, rng) #Infer parameters given STL template
     # full_spec_new = full_spec(spec_goal, infered_STL_obs)
     print('----Infered STL_Obs is----', infered_STL_obs)
     specs.append(infered_STL_obs)
     best_Ys.append(best_Y)
     # Train agorithm and get rollout dataset
-    df_p_x, df_v_x = train_alg('TD3Lag', env_id,total_steps, steps_per_epoch, spec_obs, num_rollout) # Running TD3 to get results for BL1
+    df_p_x, df_v_x = train_alg('TD3Lag', env_id,total_steps,steps_per_epoch, spec_obs, num_rollout) # Running TD3 to get results for BL1
     
     # Human labeling of rollout dataset
     p_x_r,v_x_r, p_x_a , v_x_a  = human_labeling(spec_obs_true,op, df_p_x, df_v_x , cost_limit)  # Label rollout traces from RL
@@ -90,7 +90,7 @@ final_spec.append(infered_STL_obs)
 
 # Run Baseline1 - cost not considered
 print('Running BL1')
-df_p_x, df_v_x = train_alg('TD3', env_id, total_steps, spec_obs, num_rollout) # Running TD3 to get results for BL1
+df_p_x, df_v_x = train_alg('TD3', env_id, total_steps, steps_per_epoch, spec_obs, num_rollout) # Running TD3 to get results for BL1
 p_x_reg,v_x_reg, p_x_anom , v_x_anom = human_labeling(spec_obs_true,op, df_p_x, df_v_x , cost_limit) # labeling traces
 num_safe = len(v_x_reg.columns) #number of safe rollout traces
 num_unsafe = len(v_x_anom.columns) #number of safe rollout traces
