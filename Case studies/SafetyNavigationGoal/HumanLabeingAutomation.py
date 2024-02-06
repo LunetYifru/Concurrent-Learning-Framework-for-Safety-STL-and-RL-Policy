@@ -46,11 +46,11 @@ def human_labeling(spec,operation, x , y, cost_limit):
         if rob >=0:
             x_reg.append([j for j in x[i]])
             y_reg.append([j for j in y[i]])
-            print('Label : safe')
+            # print('Label : safe')
         if rob <0:
             x_anom.append([j for j in x[i]])
             y_anom.append([j for j in y[i]])
-            print('Label : unsafe')
+            # print('Label : unsafe')
     
     #If cost_limit != 0 
       
