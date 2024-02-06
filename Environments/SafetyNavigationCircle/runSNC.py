@@ -7,8 +7,8 @@ Created on Wed Sep 27 19:50:40 2023
 """
 import pandas as pd
 from utils import train_alg, percentage, full_spec, organize_rollout
-from GPyOpt_SafetyPointCircle1 import robustness,specification,signal,size, GP_opt
-from labeling_traces import human_labeling
+from BOSNC import robustness,specification,signal,size, GP_opt
+from HumanLabelingAutomation import human_labeling
 
 # Hyperparams
 op = 'G'
