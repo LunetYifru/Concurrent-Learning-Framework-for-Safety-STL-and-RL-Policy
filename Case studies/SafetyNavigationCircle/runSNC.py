@@ -33,8 +33,8 @@ spec_obs_true = f'G(not({spec_obs}))'
 
 
 # Manually designed rollout with guaranteed positive traces
-df_x1, df_y1 = organize_rollout('/home/WVU-AD/lay0005/Downloads/JLF_SPG1_Final/states_SPC1_100ep_BL1.pkl')
-df_x2, df_y2 = organize_rollout('/home/WVU-AD/lay0005/Downloads/JLF_SPG1_Final/states_SPC1_100ep_BL2.pkl')
+df_x1, df_y1 = organize_rollout('initial_dataset_100ep_SNC_unsafe.pkl')
+df_x2, df_y2 = organize_rollout('initial_dataset_100ep_SNC_safe.pkl')
 df_x = pd.concat([df_x1, df_x2], axis=1, ignore_index=True)
 df_y = pd.concat([df_y1, df_y2], axis=1, ignore_index=True)
 df_x,df_y = df_x2,df_y2
