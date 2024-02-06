@@ -9,7 +9,7 @@ Created on Wed Sep 27 11:29:41 2023
 import rtamt
 import math
 import pandas as pd
-from GPyOpt_SafetyHCV import robustness,specification,signal,size
+from BOSVHC import robustness,specification,signal,size
 #from InitialDataset import initial_trace
 #p_x_trace, v_x_trace = initial_trace()
 
