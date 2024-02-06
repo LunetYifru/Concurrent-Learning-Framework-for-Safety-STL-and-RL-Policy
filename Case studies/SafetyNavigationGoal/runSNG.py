@@ -13,7 +13,7 @@ from HumanLabelingAutomation import human_labeling
 # Hyperparams
 op = 'G'
 env_id = 'SafetyPointGoal1-v0'
-total_steps = 1000
+total_steps = 1500000
 steps_per_epoch = 1000
 num_rollout = 5 # Number of rollouts per iteration
 cost_limit = 0 #cost limit for Lagrange
