@@ -5,7 +5,7 @@ This repository contains the code accompanying the journal submission paper on t
 Dependencies
 The codebase depends on several key libraries, including modified versions of Safety Gymnasium and Omnisafe, tailored to meet the specific objectives of this research. The dependencies are as follows:
 
-'rtamt'
-GPyOpt (with GPy)
-Modified Safety_gymnasium
-Modified Omnisafe
+`rtamt`
+`GPyOpt (with GPy)`
+`Modified Safety_gymnasium`
+`Modified Omnisafe`
