@@ -34,11 +34,6 @@ df_x2, df_v2 = organize_rollout('initial_dataset_300ep_SVHC_safe.pkl')
 df_p_x = pd.concat([df_x1.iloc[:, : 10], df_x2.iloc[:, : 10]], axis=1, ignore_index=True)
 df_v_x = pd.concat([df_y1.iloc[:, : 10], df_y2.iloc[:, : 10]], axis=1, ignore_index=True)
 
-df_x1, df_v1 = organize_rollout('initial_dataset_100ep_SVHC_unsafe.pkl')
-df_x2, df_v2 = organize_rollout('initial_dataset_100ep_SVHC_safe.pkl')
-df_x2, df_v2 = organize_rollout('initial_dataset_300ep_SVHC_safe.pkl')
-df_p_x = pd.concat([df_x1.iloc[:, : 10], df_x2.iloc[:, : 10]], axis=1, ignore_index=True)
-df_v_x = pd.concat([df_y1.iloc[:, : 10], df_y2.iloc[:, : 10]], axis=1, ignore_index=True)
 # df_p_x, df_v_x = df_x2, df_v2
 
 print('Human Labeling...')
