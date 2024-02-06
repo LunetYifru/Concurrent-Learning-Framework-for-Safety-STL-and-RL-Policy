@@ -7,7 +7,7 @@ Created on Wed Sep 27 19:50:40 2023
 """
 import pandas as pd
 from utils import train_alg, percentage, full_spec, organize_rollout
-from GPyOpt_SafetyHCV import robustness,specification,signal,size, GP_opt
+from BOSVHC import robustness,specification,signal,size, GP_opt
 from HumanLabelingAutomation import human_labeling
 
 # Hyperparams
