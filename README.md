@@ -19,6 +19,6 @@ To replicate the environment and run the project successfully, follow the steps 
 
 Open your terminal and execute the following command to create a Conda environment named "Concurrent Learning Framework" with Python 3.10.
 
-```bash
+```terminal
 conda create -n Concurrent_Learning_Framework python=3.10
 
