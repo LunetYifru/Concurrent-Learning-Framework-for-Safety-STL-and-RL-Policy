@@ -82,9 +82,9 @@ def human_labeling(spec,operation, p_x , v_x, cost_limit):
                     i+= 1
                     j+=1
             i+=1
-        print('Final sizes : x_reg = ',len(x_reg),', x_anom = ', len(x_anom), 'with', j, 'change(s)')
+        print('Final sizes : x_reg = ',len(p_x_reg),', x_anom = ', len(p_x_anom), 'with', j, 'change(s)')
 
-    print('Sizes:  x_reg = ',len(x_reg),', x_anom = ', len(x_anom))  
+    print('Sizes:  x_reg = ',len(p_x_reg),', x_anom = ', len(p_x_anom))  
      
     p_x_reg = pd.DataFrame(p_x_reg).T
     v_x_reg = pd.DataFrame(v_x_reg).T
