@@ -56,12 +56,10 @@ spec_obs_true = f'G(not{spec_obs})'
 
 # Manually designed initial labled traces
 
-df_x1, df_y1 = organize_rollout('initial_dataset_100ep_SNG_safe.pkl')
-df_x2, df_y2 = organize_rollout('initial_dataset_100ep_SNG_unsafe.pkl')
+df_x1, df_y1 = organize_rollout('initial_dataset_100ep_SNG_unsafe.pkl')
+df_x2, df_y2 = organize_rollout('initial_dataset_100ep_SNG_safe.pkl')
 df_x = pd.concat([df_x1.iloc[:, : 10], df_x2.iloc[:, : 10]], axis=1, ignore_index=True)
 df_y = pd.concat([df_y1.iloc[:, : 10], df_y2.iloc[:, : 10]], axis=1, ignore_index=True)
-# df_x = df_x2
-# df_y = df_y2
 
 print('Human Labeling...')
 x_reg,y_reg, x_anom , y_anom = human_labeling(spec_obs_true,op, df_x, df_y,cost_limit) # labeling traces
