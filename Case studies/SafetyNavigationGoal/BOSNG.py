@@ -212,7 +212,7 @@ def GP_opt(episodes, spec_obs_template,operation, x_reg,y_reg,x_anom,y_anom,cost
     # print(bounds)
 
     initial_design = GPyOpt.experiment_design.initial_design(
-        'random', feasible_region, 2)
+        'random', feasible_region, 50)
 
     # print(initial_design)
     # --- CHOOSE the objective
