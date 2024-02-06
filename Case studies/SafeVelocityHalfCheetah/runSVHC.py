@@ -13,9 +13,9 @@ from HumanLabelingAutomation import human_labeling
 # Hyperparams
 op = 'G'
 env_id = 'SafetyHalfCheetahVelocity-v1'
-total_steps = 1000
+total_steps = 1000000
 steps_per_epoch = 1000
-num_rollout = 5 # Number of rollouts per iteration
+num_rollout = 50 # Number of rollouts per iteration
 cost_limit = 0 #cost limit for Lagrange
 delta = 0.90 # safe traces percentage threshold
 
@@ -59,7 +59,7 @@ while percentage_safe < delta:
     # infered_STL = GA(pop_df,x_reg, y_reg, x_anom, y_anom, rng) #infer full STL from traces (template+parameters)
     rng = [0,5]
     print('Optimizing parameters...')
-    infered_STL_obs, best_Y = GP_opt(2,spec_obs_template,op, p_x_reg,v_x_reg, p_x_anom , v_x_anom,cost_limit, rng) #Infer parameters given STL template
+    infered_STL_obs, best_Y = GP_opt(50,spec_obs_template,op, p_x_reg,v_x_reg, p_x_anom , v_x_anom,cost_limit, rng) #Infer parameters given STL template
     # full_spec_new = full_spec(spec_goal, infered_STL_obs)
     print('----Infered STL_Obs is----', infered_STL_obs)
     specs.append(infered_STL_obs)
