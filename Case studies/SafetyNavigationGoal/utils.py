@@ -54,9 +54,9 @@ def train_alg(alg, env_id, total_steps, steps_per_epoch, spec_obs, num_rollout):
         
     agent = omnisafe.Agent(alg, env_id,spec_obs,custom_cfgs=custom_cfgs)
     agent.learn()
-    agent.plot(smooth=1)
+    # agent.plot(smooth=1)
     # agent.render(num_episodes=1, width=256, height=256)
-    LOG_DIR = agent.logger.log_dir()
+    LOG_DIR = agent.LOG_DIR()
     print('============',LOG_DIR)
     states = Evaluate(LOG_DIR,spec_obs,env_id,num_episodes=num_rollout)
     # states = agent.evaluate(spec_obs,num_episodes=num_rollout)
@@ -203,38 +203,36 @@ def Evaluate(LOG_DIR,spec_obs,name,num_episodes):
     it = []
     # Just fill your experiment's log directory in here.
     # Such as: ~/omnisafe/examples/runs/PPOLag-{SafetyPointGoal1-v0}/seed-000-2023-03-07-20-25-48
-    if __name__ == '__main__':
-        evaluator = omnisafe.Evaluator(spec_obs,render_mode='rgb_array')
-        scan_dir = os.scandir(os.path.join(LOG_DIR, 'torch_save'))
-        print('------',scan_dir)
-        for item in scan_dir:
-            it.append(item)
-        it.sort(key=lambda item: int(item.name.split('-')[1].split('.')[0]))
-        item = it[-1]
+    evaluator = omnisafe.Evaluator(spec_obs,render_mode='rgb_array')
+    scan_dir = os.scandir(os.path.join(LOG_DIR, 'torch_save'))
+    for item in scan_dir:
+        it.append(item)
+    it.sort(key=lambda item: int(item.name.split('-')[1].split('.')[0]))
+    item = it[-1]
 
-        print(item)
-        if item.is_file() and item.name.split('.')[-1] == 'pt':
-            evaluator.load_saved(
-                save_dir=LOG_DIR,
-                model_name=item.name,
-                camera_name='track',
-                width=256,
-                height=256,
-            )
-            (episode_rewards, episode_costs,states) = evaluator.evaluate(spec_obs,num_episodes=num_episodes)
-        scan_dir.close()
-        # ********** saving states ***********
-        import pickle
-        file_name = "states_"+name+".pkl"
-        open_file = open(file_name, "wb")
-        pickle.dump(states, open_file)
+    # print(item)
+    if item.is_file() and item.name.split('.')[-1] == 'pt':
+        evaluator.load_saved(
+            save_dir=LOG_DIR,
+            model_name=item.name,
+            camera_name='track',
+            width=256,
+            height=256,
+        )
+        (episode_rewards, episode_costs,states) = evaluator.evaluate(spec_obs,num_episodes=num_episodes)
+    scan_dir.close()
+    # ********** saving states ***********
+    import pickle
+    file_name = "states_"+name+".pkl"
+    open_file = open(file_name, "wb")
+    pickle.dump(states, open_file)
 
-        open_file.close()
+    open_file.close()
 
-        open_file = open(file_name, "rb")
-        open_file.close()
+    open_file = open(file_name, "rb")
+    open_file.close()
 
-        return states
+    return states
     
 def plot_BO_Convergence(best_Y, expname):
     '''
