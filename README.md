@@ -59,7 +59,12 @@ Replace the `Omnisafe` and `Safety_gymnasium` packages installed by the modified
  
 ## Running the Project
 
-To run the project, navigate to the project's root directory followed by the case study you are interested in running and `run<nameofcasestudy>.py` in the appropriate directory.
+To run the project, navigate to the project's root directory followed by the case study you are interested in running and `run<nameofcasestudy>.py` in the appropriate directory. For example, to run Safe Navigation Circle (SNC) Experiment, in the appropriate directory, run:
+```terminal
+python runSNC.py
+```
+
+
 ## Contributions
 
 Contributions to this project are welcome. Please follow the standard GitHub fork and pull request workflow if you wish to contribute. For major changes, please open an issue first to discuss what you would like to change.
