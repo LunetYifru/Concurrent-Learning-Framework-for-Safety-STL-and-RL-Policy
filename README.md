@@ -21,10 +21,10 @@ To replicate the environment and run the project successfully, follow the steps 
 
 Open your terminal and execute the following command to create a Conda environment named "Concurrent Learning Framework" with Python 3.10 and activate environemnet.
 
-\```bash
+```terminal
 conda create -name Concurrent_Learning_Framework python==3.10
 conda activate Concurrent_Learning_Framework
-\```
+```
 
 ### Step 2: Install Dependencies
 
@@ -34,25 +34,25 @@ With the environment activated, install the required libraries using pip. Here's
 
 To install `rtamt`, run the following command. Ensure to replace `<rtamt git repository URL>` with the actual URL of the rtamt repository:
 
-\```bash
+```terminal
 pip install "git+rtamt git repository URL>](https://github.com/nickovic/rtamt.git"
-\```
+```
 
 #### GPyOpt and GPy
 
 `GPyOpt` can be installed directly via pip, which will also install `GPy` as a dependency:
 
-\```bash
+```terminal
 pip install GPyOpt
-\```
+```
 
 #### Safety Gymnasium and Omnisafe
 
 For the modified versions of Safety Gymnasium and Omnisafe, we first install the currently available versions of these packages. 
-\```bash
+```terminal
 pip install safety_gymansium
 pip install omnisafe
-\```
+```
 
 ### Step 3: 
 Replace the `Omnisafe` and `Safety_gymnasium` packages installed by the modified versions provided in the folders given in this repository. These should be placed in the "Site-packages" of your Conda environment to ensure proper integration. 
