@@ -4,7 +4,7 @@ This repository contains the official code accompanyong the paper [Concurrent Le
 
 ## Dependencies
 
-The codebase depends on several key libraries, including modified versions of Safety Gymnasium, Gymnasium, and Omnisafe, tailored to meet the specific objectives of this research. The dependencies are as follows:
+The codebase depends on several key libraries, including `modified versions of Safety Gymnasium, Gymnasium, and Omnisafe. The dependencies are as follows:
 
 - [`rtamt`](https://github.com/nickovic/rtamt.git)
 - [`GPyOpt` ](https://github.com/SheffieldML/GPyOpt.git)
@@ -12,6 +12,7 @@ The codebase depends on several key libraries, including modified versions of Sa
 - Modified [`Safety_gymnasium`](https://github.com/PKU-Alignment/safety-gymnasium.git)
 - Modified [`Omnisafe`](https://github.com/PKU-Alignment/omnisafe.git)
 
+The modified libraries involve taking the source code from the library's GitHub repository and altering it to meet the specific objectives of our research.
 ## Environment Setup
 
 To replicate the environment and run the project successfully, follow the steps outlined below. These steps assume you have Conda installed on your system. If not, please install [Anaconda](https://www.anaconda.com/products/individual).
