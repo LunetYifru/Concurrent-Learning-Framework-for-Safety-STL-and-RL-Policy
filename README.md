@@ -55,7 +55,7 @@ pip install safety_gymansium
 pip install omnisafe
 ```
 
-then replace the `Omnisafe`, `Safety_gymnasium`, and `Gymnasium` packages installed by the modified versions provided in the folders given in this repository. These should be placed in the "Site-packages" of your Conda environment to ensure proper integration. 
+then replace the `Omnisafe`, `Safety_gymnasium`, and `Gymnasium` packages installed by the modified versions provided in the zipped files given in this repository. The extracted files should be placed in the "Site-packages" of your Conda environment to ensure proper integration. 
  
 ## Running the Project
 
