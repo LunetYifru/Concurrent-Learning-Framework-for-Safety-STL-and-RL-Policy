@@ -33,7 +33,7 @@ With the environment activated, install the required libraries using pip. Here's
 
 #### rtamt
 
-To install `rtamt`, run the following command. Ensure to replace `<rtamt git repository URL>` with the actual URL of the rtamt repository:
+To install `rtamt`, run the following command.
 
 ```terminal
 pip install "git+rtamt git repository URL>](https://github.com/nickovic/rtamt.git"
