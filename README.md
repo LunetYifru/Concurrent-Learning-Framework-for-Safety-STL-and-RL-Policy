@@ -10,6 +10,7 @@ The codebase depends on several key libraries, including modified versions of Sa
 
 - [`rtamt`](https://github.com/nickovic/rtamt.git)
 - [`GPyOpt` ](https://github.com/SheffieldML/GPyOpt.git)
+- Modified [`Gymnasium`](https://github.com/Farama-Foundation/Gymnasium.git)
 - Modified [`Safety_gymnasium`](https://github.com/PKU-Alignment/safety-gymnasium.git)
 - Modified [`Omnisafe`](https://github.com/PKU-Alignment/omnisafe.git)
 
@@ -48,14 +49,13 @@ pip install GPyOpt
 
 #### Safety Gymnasium and Omnisafe
 
-For the modified versions of Safety Gymnasium and Omnisafe, we first install the currently available versions of these packages. 
+For the modified versions of Safety Gymnasium and Omnisafe, we first install the currently available versions of these packages as follows: 
 ```terminal
 pip install safety_gymansium
 pip install omnisafe
 ```
 
-### Step 3: 
-Replace the `Omnisafe` and `Safety_gymnasium` packages installed by the modified versions provided in the folders given in this repository. These should be placed in the "Site-packages" of your Conda environment to ensure proper integration. 
+then replace the `Omnisafe`, `Safety_gymnasium`, and `Gymnasium` packages installed by the modified versions provided in the folders given in this repository. These should be placed in the "Site-packages" of your Conda environment to ensure proper integration. 
  
 ## Running the Project
 
