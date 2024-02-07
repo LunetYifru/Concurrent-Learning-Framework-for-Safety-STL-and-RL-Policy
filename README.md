@@ -63,12 +63,6 @@ To run the project, navigate to the project's root directory followed by the cas
 ```terminal
 python runSNC.py
 ```
-
-
-## Contributions
-
-Contributions to this project are welcome. Please follow the standard GitHub fork and pull request workflow if you wish to contribute. For major changes, please open an issue first to discuss what you would like to change.
-
 ## License
 
 [MIT License](LICENSE)
