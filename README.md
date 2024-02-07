@@ -6,7 +6,7 @@ This repository contains the official code accompanyong the paper [Concurrent Le
 
 ## Dependencies
 
-The codebase depends on several key libraries, including modified versions of Safety Gymnasium and Omnisafe, tailored to meet the specific objectives of this research. The dependencies are as follows:
+The codebase depends on several key libraries, including modified versions of Safety Gymnasium, Gymnasium, and Omnisafe, tailored to meet the specific objectives of this research. The dependencies are as follows:
 
 - [`rtamt`](https://github.com/nickovic/rtamt.git)
 - [`GPyOpt` ](https://github.com/SheffieldML/GPyOpt.git)
@@ -59,7 +59,7 @@ then replace the `Omnisafe`, `Safety_gymnasium`, and `Gymnasium` packages instal
  
 ## Running the Project
 
-To run the project, navigate to the project's root directory followed by the case study you are interested in running and `run<nameofcasestudy>.py` in the appropriate directory. For example, to run Safe Navigation Circle (SNC) Experiment, in the appropriate directory, run:
+To run the project, navigate to the project's root directory followed by the case study you are interested in running and run the `run<nameofcasestudy>.py` file in the appropriate directory. For example, to run Safe Navigation Circle (SNC) Experiment, in the appropriate directory, run:
 ```terminal
 python runSNC.py
 ```
